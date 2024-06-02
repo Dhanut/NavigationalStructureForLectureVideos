@@ -3,7 +3,6 @@ Based on this YouTube Video to setup the Env - https://www.youtube.com/watch?v=a
 Main Steps I have Followed :-
 
 1. Script file
-
 this contains:
  a.  PowerShell script to install and set up tensorflow object detection api. So download all the dependencies and set the env variables for the object detection.
  	01. Install Python
@@ -52,4 +51,5 @@ Inside config folder can see the relevant config file. Copy and pate to images f
  
 9. export infrence graph command 
  python exporter_main_v2.py --trained_checkpoint_dir=training --pipeline_config_path=training/ssd_efficientdet_d0_512x512_coco17_tpu-8.config --output_directory inference_graph
+
 ===============================================================================================================================================================================================================
