@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<style>
+.myDiv {
+  border: 15px outset Silver; 
+  background-image: linear-gradient(black, silver);  
+  text-align: center;
+}
+</style>
+</head>
+<body style="background-color:Gainsboro;">
+<div class="myDiv">
+  <h2 style="font-size:50px; color:white; font-family:Candara; text-align: center">e-Learning Helpmate</h2>
+  <p style="font-size:20px; color:PapayaWhip; font-family:Monaco; text-align: center">Everything is a learning experience</p>
+</div>
+<h2  style="font-size:25px; color:black; font-family:Candara">Select a video to upload and play</h2>
+<p>
+	{% with messages = get_flashed_messages() %}
+	  {% if messages %}
+		<ul>
+		{% for message in messages %}
+		  <li style="font-size:20px; color:DarkGreen; font-family:Cursive">{{ message }}</li>
+		{% endfor %}
+		</ul>
+	  {% endif %}
+	{% endwith %}
+</p>
+{% if filename %}
+	<div style="margin: 10px auto;">
+		<video autoplay="autoplay" controls="controls" preload="preload">
+			<source src="{{ url_for('display_video', filename=filename) }}" type="video/mp4"></source>
+		</video>
+	</div>
+{% endif %}
+<form method="post" action="/" enctype="multipart/form-data">
+    <dl>
+		<p>
+			<input type="file" name="file" autocomplete="off" required  style="font-size:20px; color:black; font-family:Cursive; text-align: center">
+		</p>
+    </dl>
+    <p>
+		<input type="submit" value="Upload" style="font-size:20px; color:black; font-family:Cursive; text-align: center">
+	</p>
+</form>
+</body>
+</html>
